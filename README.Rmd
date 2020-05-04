@@ -97,7 +97,7 @@ enos_train %>%
 
 ```
 
-```{r example_plot, echo=F, warning=F, }
+```{r example_plot, echo=F, warning=F, message=F}
 
 # 5-minute example to substantiate the above claim
 

@@ -93,8 +93,6 @@ enos_train %>%
   )
 ```
 
-    #> Saving 7 x 5 in image
-
 ![](img1.png)
 
 More datasets to come, as well as resources regarding the raw data sets
