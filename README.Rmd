@@ -18,11 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of dataPkgTest03 is to ...
+The goal of dataPkgTest03 is to show that a data package can be constructed and maintained by yours truly. Containted herein are two copied functions from Rpackages (book) and rough drafts of data to be used in a future package for Harvard's gov 1005/1006 courses. 
 
 ## Installation
 
-You can install the released version of dataPkgTest03 from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of dataPkgTest03 from [CRAN](https://CRAN.R-project.org) with: LINK TO BE POSTED WHEN AVAILABLE
 
 ``` r
 install.packages("dataPkgTest03")
@@ -30,25 +30,75 @@ install.packages("dataPkgTest03")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Install the package, then load the library. This is necessary as the package hasn't been released and will need to be done once the repo is cloned to your local environment for the moment. 
 
-```{r example}
+``` r
+## Step #1
+
+install()
+
+```
+
+```{r load_pkg}
+
+## Proceed as normal
+
 library(dataPkgTest03)
-## basic example code
+
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
+
+This package currently hosts a cleaned up version of the data from the Enos (2016) paper that analyzes exclusionary behavior and its change throughout an experiment conducted on the Boston T lines. 
+
+```{r echo=FALSE, warning=F, message=FALSE}
+library(tidyverse)
+library(ggplot2)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
 
-You can also embed plots, for example:
+```r
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+# Run this to view data descriptions, unit information, etc. 
+
+?enos_train
+
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+
+```{r}
+
+glimpse(enos_train)
+
+```
+
+The datasets included here are ready to use as one would normally employ tibbles / other similar data frame objects in R!
+
+```{r example_plot}
+
+# 5-minute example to substantiate the above claim
+
+data <- enos_train %>% 
+  mutate(Linc = log(income))
+
+fit <- glm(data = data, Linc ~ age)
+
+enos_train %>% 
+  ggplot(aes(x = age, y = log(income))) + 
+  geom_jitter() +
+  geom_abline(slope = coef(fit)[2], intercept = coef(fit)[1], color = "red") +
+  labs(
+    y = "Log Income",
+    x = "Age",
+    title = "Example: Exploring Enos' Data",
+    caption = "Data from Enos (2016), cleaned data from Preceptor D. Kane"
+  )
+  
+```
+
+More datasets to come, as well as resources regarding the raw data sets for those interested in the pre-cleaned frames. 
+
+
+
+
+
