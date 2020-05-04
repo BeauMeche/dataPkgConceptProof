@@ -1,0 +1,25 @@
+Package: dataPkgTest03
+Title: This makes srtings less annoying!
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Beau",
+           family = "Meche",
+           role = c("aut", "cre"),
+           email = "beau_meche@college.harvard.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does is to make strings less aggravating
+      by catenating them together as factors among other things. The 
+      ordering is surprising, but that's a conversation for later as this 
+      is a proof of concept project for package construction. Additionally, 
+      this package is a proof of concept to build a data-based-package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat
+Imports: 
+    forcats
+Depends: 
+    R (>= 2.10)
