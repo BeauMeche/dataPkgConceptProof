@@ -1,4 +1,4 @@
-#' Attitude changes toward immigrants.
+#' Exclusionary attitude changes toward immigrants on the Boston T lines.
 #'
 #' Data for changes in attitude toward immigration-related policies after
 #' exposure to Spanish-speakers on a Boston commuter train, from Enos (2016).
@@ -7,9 +7,9 @@
 #'
 #' @format A tibble with 115 observations and 9 variables:
 #' \describe{
-#'   \item{male}{0/1 variable with 1 meaning male}
-#'   \item{liberal}{0/1 variable with 1 meaning liberal}
-#'   \item{republican}{0/1 variable with 1 meaning Republican}
+#'   \item{male}{binary variable with 1 meaning male}
+#'   \item{liberal}{binary variable with 1 meaning liberal}
+#'   \item{republican}{binary variable with 1 meaning Republican}
 #'   \item{age}{numeric variable for age in years}
 #'   \item{income}{numeric variable for  family income in dollars}
 #'   \item{treatment}{factor variable with two values: Treated and Control}
