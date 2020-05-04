@@ -83,7 +83,8 @@ fit <- glm(data = data, Linc ~ age)
 enos_train %>% 
   ggplot(aes(x = age, y = log(income))) + 
   geom_jitter() +
-  geom_abline(slope = coef(fit)[2], intercept = coef(fit)[1], color = "red") +
+  geom_abline(slope = coef(fit)[2], intercept = coef(fit)[1], 
+              color = "red") +
   labs(
     y = "Log Income",
     x = "Age",
@@ -92,10 +93,9 @@ enos_train %>%
   )
 ```
 
-    #> Warning in dev(filename = filename, width = dim[1], height = dim[2], ...):
-    #> 'width=7, height=4' are unlikely values in pixels
+    #> Saving 7 x 5 in image
 
-![Check it out](img1)
+![](img1.png)
 
 More datasets to come, as well as resources regarding the raw data sets
 for those interested in the pre-cleaned frames.

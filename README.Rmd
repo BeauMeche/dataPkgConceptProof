@@ -86,7 +86,8 @@ fit <- glm(data = data, Linc ~ age)
 enos_train %>% 
   ggplot(aes(x = age, y = log(income))) + 
   geom_jitter() +
-  geom_abline(slope = coef(fit)[2], intercept = coef(fit)[1], color = "red") +
+  geom_abline(slope = coef(fit)[2], intercept = coef(fit)[1], 
+              color = "red") +
   labs(
     y = "Log Income",
     x = "Age",
@@ -96,7 +97,7 @@ enos_train %>%
 
 ```
 
-```{r example_plot, echo=F, message=F, }
+```{r example_plot, echo=F, warning=F, }
 
 # 5-minute example to substantiate the above claim
 
@@ -116,10 +117,11 @@ img <- enos_train %>%
     caption = "Data from Enos (2016), cleaned data from Preceptor D. Kane"
   )
 
-ggsave(filename = "img1", device = png, plot = img)
+ggsave(filename = "img1.png")
   
 ```
-![Check it out](img1)
+![](img1.png)
+
 
 More datasets to come, as well as resources regarding the raw data sets for those interested in the pre-cleaned frames. 
 
