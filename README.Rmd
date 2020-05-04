@@ -74,7 +74,7 @@ glimpse(enos_train)
 
 The datasets included here are ready to use as one would normally employ tibbles / other similar data frame objects in R!
 
-```{r example_plot}
+```r
 
 # 5-minute example to substantiate the above claim
 
@@ -93,8 +93,33 @@ enos_train %>%
     title = "Example: Exploring Enos' Data",
     caption = "Data from Enos (2016), cleaned data from Preceptor D. Kane"
   )
+
+```
+
+```{r example_plot, echo=F, message=F, }
+
+# 5-minute example to substantiate the above claim
+
+data <- enos_train %>% 
+  mutate(Linc = log(income))
+
+fit <- glm(data = data, Linc ~ age)
+
+img <- enos_train %>% 
+  ggplot(aes(x = age, y = log(income))) + 
+  geom_jitter() +
+  geom_abline(slope = coef(fit)[2], intercept = coef(fit)[1], color = "red") +
+  labs(
+    y = "Log Income",
+    x = "Age",
+    title = "Example: Exploring Enos' Data",
+    caption = "Data from Enos (2016), cleaned data from Preceptor D. Kane"
+  )
+
+ggsave(filename = "img1", device = png, plot = img)
   
 ```
+![Check it out](img1)
 
 More datasets to come, as well as resources regarding the raw data sets for those interested in the pre-cleaned frames. 
 

@@ -92,7 +92,10 @@ enos_train %>%
   )
 ```
 
-<img src="man/figures/README-example_plot-1.png" width="100%" />
+    #> Warning in dev(filename = filename, width = dim[1], height = dim[2], ...):
+    #> 'width=7, height=4' are unlikely values in pixels
+
+![Check it out](img1)
 
 More datasets to come, as well as resources regarding the raw data sets
 for those interested in the pre-cleaned frames.
